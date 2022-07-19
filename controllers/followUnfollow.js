@@ -71,9 +71,8 @@ exports.unfollow = async(req, res)=>{
         arr.shift();  // its remove undefined 
         user2.follower = arr;
         await user2.save();   
-        // save user1 follow user2
-        // user1.follow.push(user2Id);
-        // await user1.save();
+        
+        // save user1 unfollow user2
         let arr1 = user1.follow;
         let n1 = arr1.length;
         function recursive(arr, n, user){
