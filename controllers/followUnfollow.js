@@ -2,8 +2,8 @@ const User = require('../models/user_Schema');
 
 // user1  follow user2  where user1 is login and he follow user2
 exports.follow = async(req, res)=>{
-    const user2Id = req.params.id;
-    const currUserId = req._id;
+    const user2Id = req.params.id;    // get user jisse follow karna hai from req paramter
+    const currUserId = req._id;       // that is me 
 
     try {
         // geting users schema
@@ -40,7 +40,7 @@ exports.follow = async(req, res)=>{
 // Handler for user1 unfollow user2
 
 exports.unfollow = async(req, res)=>{
-    const user2Id = req.params.id;
+    const user2Id = req.params.id;     // get user jisse unfollow karna hai from req paramter
     const currUser = req._id;
     try {
         // geting users schema
@@ -71,7 +71,7 @@ exports.unfollow = async(req, res)=>{
         arr.shift();  // its remove undefined 
         user2.follower = arr;
         await user2.save();   
-        
+
         // save user1 unfollow user2
         let arr1 = user1.follow;
         let n1 = arr1.length;
